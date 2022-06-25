@@ -1,0 +1,51 @@
+import 'package:flutter/material.dart';
+
+import 'styles/colors.dart';
+
+class MyColumnButton extends StatelessWidget {
+  const MyColumnButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      //GestureDetector use for tap able
+      onTap: (){
+        print('Calling....');
+      },
+      child: Container(
+        alignment: Alignment.center,
+        width: 80,
+        height: 80,
+        //After using BoxDecoration color must be inside to BoxDecoration
+        decoration: BoxDecoration(
+            color: mycolor3,
+            borderRadius: BorderRadius.circular(15),
+            //shape: BoxShape.circle
+            boxShadow: [
+              BoxShadow(
+                  offset: Offset(5,5),//controlling shadow using this
+                  color: greycolor,
+                  blurRadius: 7,
+                  spreadRadius: 1
+              ),
+            ],
+            gradient: LinearGradient(
+                stops: [.5,.5],
+                colors: [
+                  mycolor2,
+                  orange,
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight
+            )
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.call,color: mycolor,)
+          ],
+        ),
+      ),
+    );
+  }
+}
